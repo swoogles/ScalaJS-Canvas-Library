@@ -1,9 +1,20 @@
+name := "canvas-manipulation"
+
+lazy val scalaV = "2.11.7"
+
+lazy val commonSettings = Seq(
+  organization := "com.billding",
+  version := "0.1.0",
+  scalaVersion := scalaV
+)
+
 lazy val client = 
   (project in file("."))
+    .settings(commonSettings: _*)
     .settings(
-      scalaVersion := "2.11.7",
-      // persistLauncher := true,
-      // persistLauncher in Test := false,
+      scalaVersion := scalaV,
+      persistLauncher := true,
+      persistLauncher in Test := false,
       libraryDependencies ++= Seq(
         "com.vmunier" % "play-scalajs-scripts_2.11" % "0.4.0",
         "org.scala-js" %%% "scalajs-dom" % "0.8.0",
